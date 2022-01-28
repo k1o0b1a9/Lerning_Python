@@ -75,7 +75,7 @@ def monitor():
 
     #実行にゆとりを持たせて負荷軽減
     interval=60
-    limit=10
+    limit=1
     count=0
 
     #カートボタン監視
