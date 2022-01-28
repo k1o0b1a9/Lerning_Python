@@ -93,9 +93,9 @@ def monitor():
         time.sleep(interval)
 
 
-#@handler.add(MessageEvent, message=TextMessage)
-message = monitor()
-@handler.add(MessageEvent, message=LineNotify(message))
+@handler.add(MessageEvent, message=TextMessage)
+#message = monitor()
+#@handler.add(MessageEvent, message=LineNotify(message))
 
 def handle_message(event):
     line_bot_api.reply_message(
