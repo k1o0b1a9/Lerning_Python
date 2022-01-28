@@ -82,20 +82,18 @@ def monitor():
     while True:
         test=driver.find_elements(By.ID,'add-to-cart-button')
         if len(test) == 0:
-            print('在庫なし')
             count+=1
             if count==limit:
-                break
+                return '在庫なし'
         else:
-            print('在庫あり')
-            break
+            return '在庫あり'
             #在庫ありの場合、カートに追加
             #driver.find_elements(By.NAME,'submit.add-to-cart').click()
         time.sleep(interval)
 
 
 #@handler.add(MessageEvent, message=TextMessage)
-message = 'メッセージ本文'
+message = monitor()
 @handler.add(MessageEvent, message=LineNotify(message))
 
 def handle_message(event):
