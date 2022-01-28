@@ -1,3 +1,5 @@
+import requests
+
 from flask import Flask, request, abort
 
 from linebot import (
@@ -37,8 +39,19 @@ def callback():
 
     return 'OK'
 
+def LineNotify(message):
+    line_notify_token = YOUR_CHANNEL_ACCESS_TOKEN
+    line_notify_api = "https://notify-api.line.me/api/notify"
 
-@handler.add(MessageEvent, message=TextMessage)
+    payload = {"message":message}
+    headers = {"Authorization":"Bearer " + line_notify_token}
+    requests.post(line_notify_api, data = payload, headers = headers)
+
+
+#@handler.add(MessageEvent, message=TextMessage)
+message = 'メッセージ本文'
+@handler.add(MessageEvent, message=LineNotify(message))
+
 def handle_message(event):
     line_bot_api.reply_message(
         event.reply_token,
