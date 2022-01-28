@@ -67,7 +67,8 @@ def monitor():
     options.add_argument('--headless')
     #Chromedriverが二ヶ所にある？？？
     #chrome_service = fs.Service('/opt/homebrew/bin/chromedriver')
-    chrome_service = fs.Service('/opt/homebrew/Caskroom/chromedriver/97.0.4692.71/chromedriver')
+    #chrome_service = fs.Service('/opt/homebrew/Caskroom/chromedriver/97.0.4692.71/chromedriver')
+    chrome_service = fs.Service('/app/.chromedriver/bin/chromedriver')
     #driver = webdriver.Chrome(ChromeDriverManager().install(),service=chrome_service)
     driver = webdriver.Chrome(ChromeDriverManager().install(), options=options,service=chrome_service)
     driver.get(url)
