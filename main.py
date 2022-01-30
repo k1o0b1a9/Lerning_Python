@@ -101,8 +101,8 @@ def handle_message(event):
     line_bot_api.reply_message(
         event.reply_token,
         #event.message.textで受信したメッセージをそのまま送信
-        #TextSendMessage(text=event.message.text))
-        TextSendMessage(text=aiueo)
+        TextSendMessage(text=event.message.text))
+        #TextSendMessage(text=aiueo)
 
 
 if __name__ == "__main__":
