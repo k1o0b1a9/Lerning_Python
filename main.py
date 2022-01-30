@@ -102,7 +102,7 @@ def handle_message(event):
         event.reply_token,
         #event.message.textで受信したメッセージをそのまま送信
         #TextSendMessage(text=event.message.text))
-        TextSendMessage(aiueo)
+        TextSendMessage(text=aiueo)
 
 
 if __name__ == "__main__":
