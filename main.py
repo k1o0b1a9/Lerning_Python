@@ -104,7 +104,7 @@ def handle_message(event):
         #event.message.textで受信したメッセージをそのまま送信
         TextSendMessage(text=event.message.text))
     '''
-    line_bot_api.reply_message(TextSendMessage("aiueo"))
+    line_bot_api.reply_message(TextSendMessage(text="aiueo"))
 
 if __name__ == "__main__":
 #    app.run()
