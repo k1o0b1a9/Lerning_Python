@@ -1,27 +1,3 @@
-2022-02-01T05:02:38.750569+00:00 heroku[router]: at=info method=POST path="/callback" host=line-notify01.herokuapp.com request_id=3b422bca-9451-4a0d-b29c-484d4320a2a2 fwd="147.92.149.168" dyno=web.1 connect=0ms service=7ms status=500 bytes=463 protocol=https
-2022-02-01T05:03:27.000000+00:00 app[api]: Build started by user keigo1019.yamakasi@gmail.com
-2022-02-01T05:04:48.372289+00:00 app[api]: Release v19 created by user keigo1019.yamakasi@gmail.com
-2022-02-01T05:04:48.372289+00:00 app[api]: Deploy abb2dbf6 by user keigo1019.yamakasi@gmail.com
-2022-02-01T05:04:50.031316+00:00 heroku[web.1]: Restarting
-2022-02-01T05:04:50.070218+00:00 heroku[web.1]: State changed from up to starting
-2022-02-01T05:04:51.673480+00:00 heroku[web.1]: Stopping all processes with SIGTERM
-2022-02-01T05:04:51.987625+00:00 heroku[web.1]: Process exited with status 143
-2022-02-01T05:05:03.893365+00:00 heroku[web.1]: Starting process with command `python main.py`
-2022-02-01T05:05:08.951316+00:00 app[web.1]: * Serving Flask app 'main' (lazy loading)
-2022-02-01T05:05:08.951332+00:00 app[web.1]: * Environment: production
-2022-02-01T05:05:08.951357+00:00 app[web.1]: WARNING: This is a development server. Do not use it in a production deployment.
-2022-02-01T05:05:08.951384+00:00 app[web.1]: Use a production WSGI server instead.
-2022-02-01T05:05:08.951404+00:00 app[web.1]: * Debug mode: off
-2022-02-01T05:05:08.966037+00:00 app[web.1]: * Running on all addresses.
-2022-02-01T05:05:08.966039+00:00 app[web.1]: WARNING: This is a development server. Do not use it in a production deployment.
-2022-02-01T05:05:08.966270+00:00 app[web.1]: * Running on http://172.17.96.238:53481/ (Press CTRL+C to quit)
-2022-02-01T05:05:09.000000+00:00 app[api]: Build succeeded
-2022-02-01T05:05:09.042717+00:00 heroku[web.1]: State changed from starting to up
-2022-02-01T05:05:26.171058+00:00 app[web.1]: [2022-02-01 05:05:26,169] ERROR in app: Exception on /callback [POST]
-2022-02-01T05:05:26.171072+00:00 app[web.1]: Traceback (most recent call last):
-2022-02-01T05:05:26.171073+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.9/site-packages/flask/app.py", line 2073, in wsgi_app
-2022-02-01T05:05:26.171073+00:00 app[web.1]: response = self.full_dispatch_request()
-2022-02-01T05:05:26.171073+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.9/site-packages/flask/app.py", line 1518, in full_dispatch_request
 2022-02-01T05:05:26.171074+00:00 app[web.1]: rv = self.handle_user_exception(e)
 2022-02-01T05:05:26.171074+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.9/site-packages/flask/app.py", line 1516, in full_dispatch_request
 2022-02-01T05:05:26.171074+00:00 app[web.1]: rv = self.dispatch_request()
@@ -98,3 +74,27 @@
 2022-02-01T05:15:35.983882+00:00 app[web.1]: line_bot_api.reply_message(TextSendMessage(text='aiueo'))
 2022-02-01T05:15:35.983883+00:00 app[web.1]: TypeError: reply_message() missing 1 required positional argument: 'messages'
 2022-02-01T05:15:35.984911+00:00 app[web.1]: 10.1.48.91 - - [01/Feb/2022 05:15:35] "POST /callback HTTP/1.1" 500 -
+2022-02-01T05:34:53.000000+00:00 app[api]: Build started by user keigo1019.yamakasi@gmail.com
+2022-02-01T05:36:14.637075+00:00 app[api]: Deploy c2eae821 by user keigo1019.yamakasi@gmail.com
+2022-02-01T05:36:14.637075+00:00 app[api]: Release v21 created by user keigo1019.yamakasi@gmail.com
+2022-02-01T05:36:14.866074+00:00 heroku[web.1]: Restarting
+2022-02-01T05:36:14.892210+00:00 heroku[web.1]: State changed from up to starting
+2022-02-01T05:36:16.091789+00:00 heroku[web.1]: Stopping all processes with SIGTERM
+2022-02-01T05:36:16.383101+00:00 heroku[web.1]: Process exited with status 143
+2022-02-01T05:36:29.254694+00:00 heroku[web.1]: Starting process with command `python main.py`
+2022-02-01T05:36:34.486283+00:00 app[web.1]: * Serving Flask app 'main' (lazy loading)
+2022-02-01T05:36:34.486308+00:00 app[web.1]: * Environment: production
+2022-02-01T05:36:34.486309+00:00 app[web.1]: WARNING: This is a development server. Do not use it in a production deployment.
+2022-02-01T05:36:34.486353+00:00 app[web.1]: Use a production WSGI server instead.
+2022-02-01T05:36:34.486368+00:00 app[web.1]: * Debug mode: off
+2022-02-01T05:36:34.497049+00:00 app[web.1]: * Running on all addresses.
+2022-02-01T05:36:34.497050+00:00 app[web.1]: WARNING: This is a development server. Do not use it in a production deployment.
+2022-02-01T05:36:34.497157+00:00 app[web.1]: * Running on http://172.18.69.30:59507/ (Press CTRL+C to quit)
+2022-02-01T05:36:34.790874+00:00 heroku[web.1]: State changed from starting to up
+2022-02-01T05:36:35.000000+00:00 app[api]: Build succeeded
+2022-02-01T05:37:15.814501+00:00 app[web.1]: 10.1.25.13 - - [01/Feb/2022 05:37:15] "POST /callback HTTP/1.1" 200 -
+2022-02-01T05:37:15.815643+00:00 heroku[router]: at=info method=POST path="/callback" host=line-notify01.herokuapp.com request_id=ac7576cf-d350-4fa5-9d45-8caf31efa480 fwd="147.92.149.168" dyno=web.1 connect=0ms service=346ms status=200 bytes=154 protocol=https
+2022-02-01T06:10:11.475280+00:00 heroku[web.1]: Idling
+2022-02-01T06:10:11.478334+00:00 heroku[web.1]: State changed from up to down
+2022-02-01T06:10:12.389263+00:00 heroku[web.1]: Stopping all processes with SIGTERM
+2022-02-01T06:10:12.662523+00:00 heroku[web.1]: Process exited with status 143
