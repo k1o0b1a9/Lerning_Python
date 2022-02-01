@@ -1,0 +1,100 @@
+2022-02-01T05:02:38.750569+00:00 heroku[router]: at=info method=POST path="/callback" host=line-notify01.herokuapp.com request_id=3b422bca-9451-4a0d-b29c-484d4320a2a2 fwd="147.92.149.168" dyno=web.1 connect=0ms service=7ms status=500 bytes=463 protocol=https
+2022-02-01T05:03:27.000000+00:00 app[api]: Build started by user keigo1019.yamakasi@gmail.com
+2022-02-01T05:04:48.372289+00:00 app[api]: Release v19 created by user keigo1019.yamakasi@gmail.com
+2022-02-01T05:04:48.372289+00:00 app[api]: Deploy abb2dbf6 by user keigo1019.yamakasi@gmail.com
+2022-02-01T05:04:50.031316+00:00 heroku[web.1]: Restarting
+2022-02-01T05:04:50.070218+00:00 heroku[web.1]: State changed from up to starting
+2022-02-01T05:04:51.673480+00:00 heroku[web.1]: Stopping all processes with SIGTERM
+2022-02-01T05:04:51.987625+00:00 heroku[web.1]: Process exited with status 143
+2022-02-01T05:05:03.893365+00:00 heroku[web.1]: Starting process with command `python main.py`
+2022-02-01T05:05:08.951316+00:00 app[web.1]: * Serving Flask app 'main' (lazy loading)
+2022-02-01T05:05:08.951332+00:00 app[web.1]: * Environment: production
+2022-02-01T05:05:08.951357+00:00 app[web.1]: WARNING: This is a development server. Do not use it in a production deployment.
+2022-02-01T05:05:08.951384+00:00 app[web.1]: Use a production WSGI server instead.
+2022-02-01T05:05:08.951404+00:00 app[web.1]: * Debug mode: off
+2022-02-01T05:05:08.966037+00:00 app[web.1]: * Running on all addresses.
+2022-02-01T05:05:08.966039+00:00 app[web.1]: WARNING: This is a development server. Do not use it in a production deployment.
+2022-02-01T05:05:08.966270+00:00 app[web.1]: * Running on http://172.17.96.238:53481/ (Press CTRL+C to quit)
+2022-02-01T05:05:09.000000+00:00 app[api]: Build succeeded
+2022-02-01T05:05:09.042717+00:00 heroku[web.1]: State changed from starting to up
+2022-02-01T05:05:26.171058+00:00 app[web.1]: [2022-02-01 05:05:26,169] ERROR in app: Exception on /callback [POST]
+2022-02-01T05:05:26.171072+00:00 app[web.1]: Traceback (most recent call last):
+2022-02-01T05:05:26.171073+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.9/site-packages/flask/app.py", line 2073, in wsgi_app
+2022-02-01T05:05:26.171073+00:00 app[web.1]: response = self.full_dispatch_request()
+2022-02-01T05:05:26.171073+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.9/site-packages/flask/app.py", line 1518, in full_dispatch_request
+2022-02-01T05:05:26.171074+00:00 app[web.1]: rv = self.handle_user_exception(e)
+2022-02-01T05:05:26.171074+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.9/site-packages/flask/app.py", line 1516, in full_dispatch_request
+2022-02-01T05:05:26.171074+00:00 app[web.1]: rv = self.dispatch_request()
+2022-02-01T05:05:26.171074+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.9/site-packages/flask/app.py", line 1502, in dispatch_request
+2022-02-01T05:05:26.171075+00:00 app[web.1]: return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+2022-02-01T05:05:26.171075+00:00 app[web.1]: File "/app/main.py", line 49, in callback
+2022-02-01T05:05:26.171076+00:00 app[web.1]: handler.handle(body, signature)
+2022-02-01T05:05:26.171076+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.9/site-packages/linebot/webhook.py", line 259, in handle
+2022-02-01T05:05:26.171077+00:00 app[web.1]: self.__invoke_func(func, event, payload)
+2022-02-01T05:05:26.171077+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.9/site-packages/linebot/webhook.py", line 271, in __invoke_func
+2022-02-01T05:05:26.171078+00:00 app[web.1]: func(event)
+2022-02-01T05:05:26.171078+00:00 app[web.1]: File "/app/main.py", line 107, in handle_message
+2022-02-01T05:05:26.171079+00:00 app[web.1]: line_bot_api.reply_message(TextSendMessage(text="aiueo"))
+2022-02-01T05:05:26.171079+00:00 app[web.1]: TypeError: reply_message() missing 1 required positional argument: 'messages'
+2022-02-01T05:05:26.172061+00:00 app[web.1]: 10.1.95.2 - - [01/Feb/2022 05:05:26] "POST /callback HTTP/1.1" 500 -
+2022-02-01T05:05:26.174592+00:00 heroku[router]: at=info method=POST path="/callback" host=line-notify01.herokuapp.com request_id=60fce8b5-ffe7-4036-a764-423785626a9d fwd="147.92.149.168" dyno=web.1 connect=0ms service=4ms status=500 bytes=463 protocol=https
+2022-02-01T05:05:28.570991+00:00 app[web.1]: [2022-02-01 05:05:28,570] ERROR in app: Exception on /callback [POST]
+2022-02-01T05:05:28.571004+00:00 app[web.1]: Traceback (most recent call last):
+2022-02-01T05:05:28.571004+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.9/site-packages/flask/app.py", line 2073, in wsgi_app
+2022-02-01T05:05:28.571005+00:00 app[web.1]: response = self.full_dispatch_request()
+2022-02-01T05:05:28.571006+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.9/site-packages/flask/app.py", line 1518, in full_dispatch_request
+2022-02-01T05:05:28.571006+00:00 app[web.1]: rv = self.handle_user_exception(e)
+2022-02-01T05:05:28.571007+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.9/site-packages/flask/app.py", line 1516, in full_dispatch_request
+2022-02-01T05:05:28.571007+00:00 app[web.1]: rv = self.dispatch_request()
+2022-02-01T05:05:28.571007+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.9/site-packages/flask/app.py", line 1502, in dispatch_request
+2022-02-01T05:05:28.571008+00:00 app[web.1]: return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+2022-02-01T05:05:28.571008+00:00 app[web.1]: File "/app/main.py", line 49, in callback
+2022-02-01T05:05:28.571009+00:00 app[web.1]: handler.handle(body, signature)
+2022-02-01T05:05:28.571009+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.9/site-packages/linebot/webhook.py", line 259, in handle
+2022-02-01T05:05:28.571009+00:00 app[web.1]: self.__invoke_func(func, event, payload)
+2022-02-01T05:05:28.571010+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.9/site-packages/linebot/webhook.py", line 271, in __invoke_func
+2022-02-01T05:05:28.571010+00:00 app[web.1]: func(event)
+2022-02-01T05:05:28.571011+00:00 app[web.1]: File "/app/main.py", line 107, in handle_message
+2022-02-01T05:05:28.571011+00:00 app[web.1]: line_bot_api.reply_message(TextSendMessage(text="aiueo"))
+2022-02-01T05:05:28.571011+00:00 app[web.1]: TypeError: reply_message() missing 1 required positional argument: 'messages'
+2022-02-01T05:05:28.571769+00:00 app[web.1]: 10.1.95.2 - - [01/Feb/2022 05:05:28] "POST /callback HTTP/1.1" 500 -
+2022-02-01T05:05:28.574325+00:00 heroku[router]: at=info method=POST path="/callback" host=line-notify01.herokuapp.com request_id=2b869137-5de1-4d11-98ed-b6d15f1ed556 fwd="147.92.149.168" dyno=web.1 connect=0ms service=7ms status=500 bytes=463 protocol=https
+2022-02-01T05:11:43.000000+00:00 app[api]: Build started by user keigo1019.yamakasi@gmail.com
+2022-02-01T05:13:12.523156+00:00 app[api]: Release v20 created by user keigo1019.yamakasi@gmail.com
+2022-02-01T05:13:12.523156+00:00 app[api]: Deploy 322fb56a by user keigo1019.yamakasi@gmail.com
+2022-02-01T05:13:12.940728+00:00 heroku[web.1]: Restarting
+2022-02-01T05:13:12.999873+00:00 heroku[web.1]: State changed from up to starting
+2022-02-01T05:13:14.131120+00:00 heroku[web.1]: Stopping all processes with SIGTERM
+2022-02-01T05:13:14.386650+00:00 heroku[web.1]: Process exited with status 143
+2022-02-01T05:13:27.309780+00:00 heroku[web.1]: Starting process with command `python main.py`
+2022-02-01T05:13:31.531486+00:00 app[web.1]: * Serving Flask app 'main' (lazy loading)
+2022-02-01T05:13:31.531508+00:00 app[web.1]: * Environment: production
+2022-02-01T05:13:31.531509+00:00 app[web.1]: WARNING: This is a development server. Do not use it in a production deployment.
+2022-02-01T05:13:31.531536+00:00 app[web.1]: Use a production WSGI server instead.
+2022-02-01T05:13:31.531536+00:00 app[web.1]: * Debug mode: off
+2022-02-01T05:13:31.541348+00:00 app[web.1]: * Running on all addresses.
+2022-02-01T05:13:31.541350+00:00 app[web.1]: WARNING: This is a development server. Do not use it in a production deployment.
+2022-02-01T05:13:31.541503+00:00 app[web.1]: * Running on http://172.16.32.22:32616/ (Press CTRL+C to quit)
+2022-02-01T05:13:32.071085+00:00 heroku[web.1]: State changed from starting to up
+2022-02-01T05:13:33.000000+00:00 app[api]: Build succeeded
+2022-02-01T05:15:35.981316+00:00 heroku[router]: at=info method=POST path="/callback" host=line-notify01.herokuapp.com request_id=6b5dfb09-4766-45ec-bfb9-655ffce02728 fwd="147.92.149.168" dyno=web.1 connect=0ms service=8ms status=500 bytes=463 protocol=https
+2022-02-01T05:15:35.983847+00:00 app[web.1]: [2022-02-01 05:15:35,982] ERROR in app: Exception on /callback [POST]
+2022-02-01T05:15:35.983874+00:00 app[web.1]: Traceback (most recent call last):
+2022-02-01T05:15:35.983876+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.9/site-packages/flask/app.py", line 2073, in wsgi_app
+2022-02-01T05:15:35.983876+00:00 app[web.1]: response = self.full_dispatch_request()
+2022-02-01T05:15:35.983877+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.9/site-packages/flask/app.py", line 1518, in full_dispatch_request
+2022-02-01T05:15:35.983877+00:00 app[web.1]: rv = self.handle_user_exception(e)
+2022-02-01T05:15:35.983878+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.9/site-packages/flask/app.py", line 1516, in full_dispatch_request
+2022-02-01T05:15:35.983878+00:00 app[web.1]: rv = self.dispatch_request()
+2022-02-01T05:15:35.983878+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.9/site-packages/flask/app.py", line 1502, in dispatch_request
+2022-02-01T05:15:35.983879+00:00 app[web.1]: return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+2022-02-01T05:15:35.983879+00:00 app[web.1]: File "/app/main.py", line 49, in callback
+2022-02-01T05:15:35.983879+00:00 app[web.1]: handler.handle(body, signature)
+2022-02-01T05:15:35.983880+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.9/site-packages/linebot/webhook.py", line 259, in handle
+2022-02-01T05:15:35.983880+00:00 app[web.1]: self.__invoke_func(func, event, payload)
+2022-02-01T05:15:35.983880+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.9/site-packages/linebot/webhook.py", line 271, in __invoke_func
+2022-02-01T05:15:35.983881+00:00 app[web.1]: func(event)
+2022-02-01T05:15:35.983882+00:00 app[web.1]: File "/app/main.py", line 107, in handle_message
+2022-02-01T05:15:35.983882+00:00 app[web.1]: line_bot_api.reply_message(TextSendMessage(text='aiueo'))
+2022-02-01T05:15:35.983883+00:00 app[web.1]: TypeError: reply_message() missing 1 required positional argument: 'messages'
+2022-02-01T05:15:35.984911+00:00 app[web.1]: 10.1.48.91 - - [01/Feb/2022 05:15:35] "POST /callback HTTP/1.1" 500 -
