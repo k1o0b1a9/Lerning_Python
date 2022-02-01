@@ -94,19 +94,26 @@ def monitor():
 
 
 @handler.add(MessageEvent, message=TextMessage)
-#message = monitor()
 #@handler.add(MessageEvent, message=LineNotify(message))
 
 def handle_message(event):
-    '''
+    '''オウム返し
     line_bot_api.reply_message(
         event.reply_token,
         #event.message.textで受信したメッセージをそのまま送信
         TextSendMessage(text=event.message.text))
     '''
+    '''定型分返し
     line_bot_api.reply_message(
         event.reply_token,
         TextSendMessage(text='aiueo'))
+    '''
+    message = monitor()
+    LineNotify(message)
+    line_bot_api.reply_message(
+        event.reply_token,
+        TextSendMessage(text=message))
+
 
 if __name__ == "__main__":
 #    app.run()
