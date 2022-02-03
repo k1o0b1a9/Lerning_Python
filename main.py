@@ -60,8 +60,6 @@ def LineNotify(message):
     headers = {"Authorization":"Bearer " + line_notify_token}
     requests.post(line_notify_api, data = payload, headers = headers)
 
-    line_bot_api.push_message('<to>', TextSendMessage(text='Hello World!'))
-
 
 def monitor():
     # chromedriverの設定とキーワード検索実行
@@ -112,6 +110,9 @@ def handle_message(event):
     #在庫監視結果格納
     message = monitor()
     LineNotify(message)
+
+    line_bot_api.push_message('<to>', TextSendMessage(text='Hello World!'))
+
     #メッセージをトリガーとして在庫状況を伝える
     '''
     line_bot_api.reply_message(
