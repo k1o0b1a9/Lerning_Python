@@ -60,6 +60,9 @@ def LineNotify(message):
     headers = {"Authorization":"Bearer " + line_notify_token}
     requests.post(line_notify_api, data = payload, headers = headers)
 
+    line_bot_api.push_message('<to>', TextSendMessage(text='Hello World!'))
+
+
 def monitor():
     # chromedriverの設定とキーワード検索実行
     #headlessで実行時ウィンドウが開かないとように変更
@@ -93,7 +96,6 @@ def monitor():
         time.sleep(interval)
 
 @handler.add(MessageEvent, message=TextMessage)
-#@handler.add(MessageEvent, message=LineNotify(message))
 
 def handle_message(event):
     '''オウム返し
