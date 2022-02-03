@@ -111,7 +111,7 @@ def handle_message(event):
     message = monitor()
     LineNotify(message)
 
-    line_bot_api.push_message('@563aipyl', TextSendMessage(text='Hello World!'))
+    line_bot_api.push_message('keigo1019', TextSendMessage(text='Hello World!'))
 
     #メッセージをトリガーとして在庫状況を伝える
     '''
