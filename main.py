@@ -109,16 +109,14 @@ def handle_message(event):
     '''
     #在庫監視結果格納
     message = monitor()
-    LineNotify(message)
+    #LineNotify(message)
 
-    line_bot_api.push_message('keigo1019', TextSendMessage(text='Hello World!'))
+    #line_bot_api.push_message('@563aipyl', TextSendMessage(text='Hello World!'))
 
     #メッセージをトリガーとして在庫状況を伝える
-    '''
     line_bot_api.reply_message(
         event.reply_token,
         TextSendMessage(text=message))
-    '''
 
 
 if __name__ == "__main__":
