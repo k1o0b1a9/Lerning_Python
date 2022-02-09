@@ -111,12 +111,20 @@ def handle_message(event):
     message = monitor()
     #LineNotify(message)
 
+    #ユーザからのメッセージを介さず自分で送信できるように
     #line_bot_api.push_message('@563aipyl', TextSendMessage(text='Hello World!'))
 
     #メッセージをトリガーとして在庫状況を伝える
     line_bot_api.reply_message(
         event.reply_token,
         TextSendMessage(text=message))
+
+    #プッシュ通知
+    #プッシュ通知送り先LINE ID
+    user_id = "keigo1019"
+    line_bot_api.push_message(
+        user_id, 
+        TextSendMessage(text='Hello World!'))
 
 
 if __name__ == "__main__":
