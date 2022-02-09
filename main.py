@@ -35,6 +35,13 @@ YOUR_CHANNEL_SECRET = os.environ["YOUR_CHANNEL_SECRET"]
 line_bot_api = LineBotApi(YOUR_CHANNEL_ACCESS_TOKEN)
 handler = WebhookHandler(YOUR_CHANNEL_SECRET)
 
+#プッシュ通知
+#プッシュ通知送り先UserID
+user_id = "Ude77d803648ee43d4c24a95d17b09d4c"
+line_bot_api.push_message(
+    user_id, 
+    TextSendMessage(text='Hello World!'))
+
 @app.route("/callback", methods=['POST'])
 def callback():
     # get X-Line-Signature header value
@@ -120,13 +127,6 @@ def handle_message(event):
         event.reply_token,
         TextSendMessage(text=message))
     '''
-
-    #プッシュ通知
-    #プッシュ通知送り先UserID
-    user_id = "Ude77d803648ee43d4c24a95d17b09d4c"
-    line_bot_api.push_message(
-        user_id, 
-        TextSendMessage(text='Hello World!'))
 
 
 if __name__ == "__main__":
