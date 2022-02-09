@@ -122,7 +122,7 @@ def handle_message(event):
     #プッシュ通知
     #プッシュ通知送り先LINE ID
     #user_id = "keigo1019"
-    user_id = "@563aipyl"
+    user_id = "Ude77d803648ee43d4c24a95d17b09d4c"
     line_bot_api.push_message(
         user_id, 
         TextSendMessage(text='Hello World!'))
