@@ -26,14 +26,17 @@ import os
 app = Flask(__name__)
 
 #AmazonのPS5販売ページ
-url='https://www.amazon.co.jp/%E3%82%BD%E3%83%8B%E3%83%BC%E3%83%BB%E3%82%A4%E3%83%B3%E3%82%BF%E3%83%A9%E3%82%AF%E3%83%86%E3%82%A3%E3%83%96%E3%82%A8%E3%83%B3%E3%82%BF%E3%83%86%E3%82%A4%E3%83%B3%E3%83%A1%E3%83%B3%E3%83%88-PlayStation-5-CFI-1100A01/dp/B09CTQPQNV/ref=sr_1_38?__mk_ja_JP=%E3%82%AB%E3%82%BF%E3%82%AB%E3%83%8A&crid=19TKW2FUUFBZR&keywords=PS5&qid=1643263211&sprefix=ps%2Caps%2C359&sr=8-38'
-
+#url='https://www.amazon.co.jp/%E3%82%BD%E3%83%8B%E3%83%BC%E3%83%BB%E3%82%A4%E3%83%B3%E3%82%BF%E3%83%A9%E3%82%AF%E3%83%86%E3%82%A3%E3%83%96%E3%82%A8%E3%83%B3%E3%82%BF%E3%83%86%E3%82%A4%E3%83%B3%E3%83%A1%E3%83%B3%E3%83%88-PlayStation-5-CFI-1100A01/dp/B09CTQPQNV/ref=sr_1_38?__mk_ja_JP=%E3%82%AB%E3%82%BF%E3%82%AB%E3%83%8A&crid=19TKW2FUUFBZR&keywords=PS5&qid=1643263211&sprefix=ps%2Caps%2C359&sr=8-38'
+#テスト
+url='https://www.amazon.co.jp/3A%E6%80%A5%E9%80%9F%E5%85%85%E9%9B%BB%E3%83%BB2-5%E6%99%82%E9%96%93%E3%83%95%E3%83%AB%E5%85%85%E9%9B%BB%E3%83%BB%E5%AE%89%E5%AE%9A%E5%85%85%E9%9B%BB-%E3%83%81%E3%83%A3%E3%83%B3%E3%83%8D%E3%83%AB%E3%81%AE%E5%85%85%E9%9B%BB%E3%83%89%E3%83%83%E3%82%AF-PS5%E5%85%85%E9%9B%BB%E3%82%B9%E3%82%BF%E3%83%B3%E3%83%89-%E6%80%A5%E9%80%9F%E5%85%85%E9%9B%BB%E9%81%8E%E5%85%85%E9%9B%BB%E9%98%B2%E6%AD%A2-%E3%82%B2%E3%83%BC%E3%83%A0%E3%83%91%E3%83%83%E3%83%89%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B5%E3%83%AA%E3%83%BC/dp/B09CT51PWC/ref=sr_1_18?__mk_ja_JP=%E3%82%AB%E3%82%BF%E3%82%AB%E3%83%8A&crid=19TKW2FUUFBZR&keywords=PS5&qid=1643263211&sprefix=ps%2Caps%2C359&sr=8-18'
 #環境変数取得
 YOUR_CHANNEL_ACCESS_TOKEN = os.environ["YOUR_CHANNEL_ACCESS_TOKEN"]
 YOUR_CHANNEL_SECRET = os.environ["YOUR_CHANNEL_SECRET"]
 
 line_bot_api = LineBotApi(YOUR_CHANNEL_ACCESS_TOKEN)
 handler = WebhookHandler(YOUR_CHANNEL_SECRET)
+#プッシュ通知送り先UserID
+user_id = "Ude77d803648ee43d4c24a95d17b09d4c"
 
 def monitor():
     # chromedriverの設定とキーワード検索実行
@@ -50,7 +53,7 @@ def monitor():
 
     #実行にゆとりを持たせて負荷軽減
     interval=60
-    limit=1
+    limit=100
     count=0
 
     #カートボタン監視
@@ -68,14 +71,12 @@ def monitor():
         time.sleep(interval)
 
 #在庫監視結果格納
-message = monitor()
-
-#プッシュ通知
-#プッシュ通知送り先UserID
-user_id = "Ude77d803648ee43d4c24a95d17b09d4c"
-line_bot_api.push_message(
-    user_id, 
-    TextSendMessage(text=message))
+if monitor()=='在庫あり':
+    message = monitor()
+    #プッシュ通知
+    line_bot_api.push_message(
+        user_id, 
+        TextSendMessage(text=message))
 
 @app.route("/callback", methods=['POST'])
 def callback():
