@@ -35,12 +35,17 @@ YOUR_CHANNEL_SECRET = os.environ["YOUR_CHANNEL_SECRET"]
 line_bot_api = LineBotApi(YOUR_CHANNEL_ACCESS_TOKEN)
 handler = WebhookHandler(YOUR_CHANNEL_SECRET)
 
-#プッシュ通知
-#プッシュ通知送り先UserID
-user_id = "Ude77d803648ee43d4c24a95d17b09d4c"
-line_bot_api.push_message(
-    user_id, 
-    TextSendMessage(text='Hello World!'))
+#在庫監視結果格納
+#message = monitor()
+
+
+def main():
+    #プッシュ通知
+    #プッシュ通知送り先UserID
+    user_id = "Ude77d803648ee43d4c24a95d17b09d4c"
+    line_bot_api.push_message(
+        user_id, 
+        TextSendMessage(text='Hello World!'))
 
 @app.route("/callback", methods=['POST'])
 def callback():
@@ -66,7 +71,6 @@ def LineNotify(message):
     payload = {"message":message}
     headers = {"Authorization":"Bearer " + line_notify_token}
     requests.post(line_notify_api, data = payload, headers = headers)
-
 
 def monitor():
     # chromedriverの設定とキーワード検索実行
@@ -114,8 +118,6 @@ def handle_message(event):
         event.reply_token,
         TextSendMessage(text='aiueo'))
     '''
-    #在庫監視結果格納
-    #message = monitor()
     #LineNotify(message)
 
     #ユーザからのメッセージを介さず自分で送信できるように
