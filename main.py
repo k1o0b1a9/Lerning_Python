@@ -35,43 +35,6 @@ YOUR_CHANNEL_SECRET = os.environ["YOUR_CHANNEL_SECRET"]
 line_bot_api = LineBotApi(YOUR_CHANNEL_ACCESS_TOKEN)
 handler = WebhookHandler(YOUR_CHANNEL_SECRET)
 
-#在庫監視結果格納
-#message = monitor()
-
-
-def main():
-    #プッシュ通知
-    #プッシュ通知送り先UserID
-    user_id = "Ude77d803648ee43d4c24a95d17b09d4c"
-    line_bot_api.push_message(
-        user_id, 
-        TextSendMessage(text='Hello World!'))
-
-@app.route("/callback", methods=['POST'])
-def callback():
-    # get X-Line-Signature header value
-    signature = request.headers['X-Line-Signature']
-
-    # get request body as text
-    body = request.get_data(as_text=True)
-    app.logger.info("Request body: " + body)
-
-    # handle webhook body
-    try:
-        handler.handle(body, signature)
-    except InvalidSignatureError:
-        abort(400)
-
-    return 'OK'
-
-def LineNotify(message):
-    line_notify_token = YOUR_CHANNEL_ACCESS_TOKEN
-    line_notify_api = "https://notify-api.line.me/api/notify"
-
-    payload = {"message":message}
-    headers = {"Authorization":"Bearer " + line_notify_token}
-    requests.post(line_notify_api, data = payload, headers = headers)
-
 def monitor():
     # chromedriverの設定とキーワード検索実行
     #headlessで実行時ウィンドウが開かないとように変更
@@ -103,6 +66,41 @@ def monitor():
             #在庫ありの場合、カートに追加
             #driver.find_elements(By.NAME,'submit.add-to-cart').click()
         time.sleep(interval)
+
+#在庫監視結果格納
+message = monitor()
+
+#プッシュ通知
+#プッシュ通知送り先UserID
+user_id = "Ude77d803648ee43d4c24a95d17b09d4c"
+line_bot_api.push_message(
+    user_id, 
+    TextSendMessage(text=message))
+
+@app.route("/callback", methods=['POST'])
+def callback():
+    # get X-Line-Signature header value
+    signature = request.headers['X-Line-Signature']
+
+    # get request body as text
+    body = request.get_data(as_text=True)
+    app.logger.info("Request body: " + body)
+
+    # handle webhook body
+    try:
+        handler.handle(body, signature)
+    except InvalidSignatureError:
+        abort(400)
+
+    return 'OK'
+
+def LineNotify(message):
+    line_notify_token = YOUR_CHANNEL_ACCESS_TOKEN
+    line_notify_api = "https://notify-api.line.me/api/notify"
+
+    payload = {"message":message}
+    headers = {"Authorization":"Bearer " + line_notify_token}
+    requests.post(line_notify_api, data = payload, headers = headers)
 
 @handler.add(MessageEvent, message=TextMessage)
 
