@@ -108,7 +108,7 @@ def handle_message(event):
         TextSendMessage(text='aiueo'))
     '''
     #在庫監視結果格納
-    message = monitor()
+    #message = monitor()
     #LineNotify(message)
 
     #ユーザからのメッセージを介さず自分で送信できるように
