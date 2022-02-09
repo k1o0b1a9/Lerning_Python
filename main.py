@@ -115,13 +115,14 @@ def handle_message(event):
     #line_bot_api.push_message('@563aipyl', TextSendMessage(text='Hello World!'))
 
     #メッセージをトリガーとして在庫状況を伝える
+    '''
     line_bot_api.reply_message(
         event.reply_token,
         TextSendMessage(text=message))
+    '''
 
     #プッシュ通知
-    #プッシュ通知送り先LINE ID
-    #user_id = "keigo1019"
+    #プッシュ通知送り先UserID
     user_id = "Ude77d803648ee43d4c24a95d17b09d4c"
     line_bot_api.push_message(
         user_id, 
