@@ -103,7 +103,9 @@ def LineNotify(message):
     headers = {"Authorization":"Bearer " + line_notify_token}
     requests.post(line_notify_api, data = payload, headers = headers)
 
+'''
 @handler.add(MessageEvent, message=TextMessage)
+'''
 
 def handle_message(event):
     '''オウム返し
@@ -128,7 +130,6 @@ def handle_message(event):
         event.reply_token,
         TextSendMessage(text=message))
     '''
-
 
 if __name__ == "__main__":
 #    app.run()
