@@ -44,7 +44,6 @@ def monitor():
     options = webdriver.ChromeOptions()
     options.add_argument('--headless')
     #Chromedriverが二ヶ所にある？？？
-    #chrome_service = fs.Service('/opt/homebrew/bin/chromedriver')
     #chrome_service = fs.Service('/opt/homebrew/Caskroom/chromedriver/97.0.4692.71/chromedriver')
     chrome_service = fs.Service('/app/.chromedriver/bin/chromedriver')
     #driver = webdriver.Chrome(ChromeDriverManager().install(),service=chrome_service)
@@ -77,7 +76,7 @@ if monitor()=='在庫あり':
     line_bot_api.push_message(
         user_id, 
         TextSendMessage(text=message))
-
+'''
 @app.route("/callback", methods=['POST'])
 def callback():
     # get X-Line-Signature header value
@@ -94,6 +93,7 @@ def callback():
         abort(400)
 
     return 'OK'
+'''
 
 def LineNotify(message):
     line_notify_token = YOUR_CHANNEL_ACCESS_TOKEN
